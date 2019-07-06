@@ -2,8 +2,40 @@
 <html>
 <head>
 	<title>Decentralised Video Streaming</title>
+	<script src="https://wzrd.in/standalone/buffer"></script>
+    <script src="https://unpkg.com/ipfs-api@9.0.0/dist/index.js"
+    integrity="sha384-5bXRcW9kyxxnSMbOoHzraqa7Z0PQWIao+cgeg327zit1hz5LZCEbIMx/LWKPReuB"
+    crossorigin="anonymous"></script>
 </head>
 <body>
+<input type="file" id="file">
+<button id="upload" onclick="upload()">upload</button>\
+<script type="text/javascript">
+	const file = document.getElementById('file')
 
+	function upload(){
+		const reader = new FileReader()
+		reader.onloadend = function() {
+			const ipfs = window.IpfsApi('ipfs.infura.io', '5001', {protocol: 'https'}) // Connect to IPFS
+	        const buf = buffer.Buffer(reader.result) // Convert data into buffer
+	        ipfs.files.add(buf, (err, result) => { // Upload buffer to IPFS
+	          if(err) {
+	            console.error(err)
+	            return
+	          }
+	          console.log(result)
+	          const a = document.createElement('a')
+		a.href = 'https://gateway.ipfs.io/ipfs/'+ result[0].hash + "/"
+		a.innerHTML = "blaaa"
+		document.body.appendChild(a)
+		})
+	    
+
+	}
+		reader.readAsArrayBuffer(file.files[0])
+
+	}
+
+</script>
 </body>
 </html>
