@@ -6,36 +6,26 @@
     <script src="https://unpkg.com/ipfs-api@9.0.0/dist/index.js"
     integrity="sha384-5bXRcW9kyxxnSMbOoHzraqa7Z0PQWIao+cgeg327zit1hz5LZCEbIMx/LWKPReuB"
     crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webtorrent/0.104.0/webtorrent.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+	<script src="https://unpkg.com/hlsjs-ipfs-loader@0.1.2/dist/index.js"></script>
 </head>
 <body>
 <input type="file" id="file">
-<button id="upload" onclick="upload()">upload</button>\
+<button id="upload" onclick="upload()">upload</button>
+<br><br>
+ipfsHash
+<input type="text" id="ipfsHash"><br>
+infoHash
+<input type="text" id="infoHash"><br>
+<button id="submit" onclick="redirect()">Submit</button>
+<div class="output"></div>
+<video  id="video" controls style="display: none;"></video>
+<script src="index.js"></script>
+<script src="ipfs-upload.js"></script>
+<script src="webtorrent.js"></script>
 <script type="text/javascript">
-	const file = document.getElementById('file')
-
-	function upload(){
-		const reader = new FileReader()
-		reader.onloadend = function() {
-			const ipfs = window.IpfsApi('ipfs.infura.io', '5001', {protocol: 'https'}) // Connect to IPFS
-	        const buf = buffer.Buffer(reader.result) // Convert data into buffer
-	        ipfs.files.add(buf, (err, result) => { // Upload buffer to IPFS
-	          if(err) {
-	            console.error(err)
-	            return
-	          }
-	          console.log(result)
-	          const a = document.createElement('a')
-		a.href = 'https://gateway.ipfs.io/ipfs/'+ result[0].hash + "/"
-		a.innerHTML = "blaaa"
-		document.body.appendChild(a)
-		})
-	    
-
-	}
-		reader.readAsArrayBuffer(file.files[0])
-
-	}
-
+	hlsplay()
 </script>
 </body>
 </html>
