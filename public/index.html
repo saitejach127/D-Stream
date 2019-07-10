@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Decentralised Video Streaming</title>
-	<script src="https://wzrd.in/standalone/buffer"></script>
+	<script src="https://cdn.jsdelivr.net/npm/buffer@5.2.1/index.min.js"></script>
     <script src="https://unpkg.com/ipfs-api@9.0.0/dist/index.js"
     integrity="sha384-5bXRcW9kyxxnSMbOoHzraqa7Z0PQWIao+cgeg327zit1hz5LZCEbIMx/LWKPReuB"
     crossorigin="anonymous"></script>
@@ -15,17 +15,17 @@
 <button id="upload" onclick="upload()">upload</button>
 <br><br>
 ipfsHash
-<input type="text" id="ipfsHash"><br>
+<input type="text" id="ipfsHash" value="Qmdn6TA4UkV2VbfL4GTGowZC9jCZtMgNLAKLDBWy7XQUHZ"><br>
 infoHash
-<input type="text" id="infoHash"><br>
+<input type="text" id="infoHash" value="9aae85caf6ba36ff95d2ea2a0e4ae836358b2ecb"><br>
 <button id="submit" onclick="redirect()">Submit</button>
 <div class="output"></div>
 <video  id="video" controls style="display: none;"></video>
+<h6>Test video</h6>
+ipfsHash : <p>Qmdn6TA4UkV2VbfL4GTGowZC9jCZtMgNLAKLDBWy7XQUHZ</p>
+torrent infoHash : <p>9aae85caf6ba36ff95d2ea2a0e4ae836358b2ecb</p>
 <script src="index.js"></script>
 <script src="ipfs-upload.js"></script>
 <script src="webtorrent.js"></script>
-<script type="text/javascript">
-	hlsplay()
-</script>
 </body>
 </html>

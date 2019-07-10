@@ -30,4 +30,5 @@ function getIpfs(){
 	video.setAttribute("style", "display : inline");
 }
 
-var v = "Qmdn6TA4UkV2VbfL4GTGowZC9jCZtMgNLAKLDBWy7XQUHZ"
+var iph = "Qmdn6TA4UkV2VbfL4GTGowZC9jCZtMgNLAKLDBWy7XQUHZ"
+var trh = "9aae85caf6ba36ff95d2ea2a0e4ae836358b2ecb"
