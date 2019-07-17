@@ -8,6 +8,11 @@ function onTorrent(torrent){
 	torrent.files.forEach((file) => {
 		console.log(torrent.numPeers)
 		file.appendTo('.output')
+		time = video.currentTime;
+		video.remove()
+		var vid = document.querySelector('video');
+		vid.currentTime = time;
+		vid.play();
 		// video.setAttribute("style", "display : inline");
 	})
 }

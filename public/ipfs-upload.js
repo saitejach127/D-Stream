@@ -18,8 +18,6 @@ function upload(){
 		  document.body.appendChild(a)
 	})
     torrentUpload()
-    
-
 }
 	reader.readAsArrayBuffer(file.files[0])
 
