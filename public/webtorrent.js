@@ -7,14 +7,24 @@ function onTorrent(torrent){
 	tor = torrent;
 	torrent.files.forEach((file) => {
 		console.log(torrent.numPeers)
-		file.appendTo('.output')
-		time = video.currentTime;
-		video.remove()
-		var vid = document.querySelector('video');
-		vid.currentTime = time;
-		vid.play();
-		// video.setAttribute("style", "display : inline");
+		tor = torrent;
+		file.renderTo('video#video');
 	})
+}
+
+var change = true;
+
+setInterval(()=>{
+	if(tor.numPeers == 0&&change){
+		turnIpfs();
+		change = false;
+	}
+},1000)
+
+function turnIpfs(){
+	var time = video.currentTime;
+	video.src = 'https://gateway.ipfs.io/ipfs/'+ ipfsHash.value + "/";
+	video.currentTime = time;
 }
 
 function getTorrent(){

@@ -2,9 +2,9 @@ const file = document.getElementById('file')
 const ipfs = window.IpfsApi('localhost', '5001', {protocol: 'https'})
 const infoHash = document.getElementById('infoHash')
 const ipfsHash = document.getElementById('ipfsHash')
+const video = document.getElementById('video')
 let data;
 var client = new WebTorrent()
-const video = document.getElementById('video')
 let tor;
 
 function redirect(){

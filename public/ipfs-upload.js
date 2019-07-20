@@ -13,8 +13,7 @@ function upload(){
           const a = document.createElement('a')
 		  a.href = 'https://gateway.ipfs.io/ipfs/'+ result[0].hash + "/"
 		  a.innerHTML = "done"
-		  video.src = a.href;
-		  video.setAttribute("style", "display : inline");
+		  
 		  document.body.appendChild(a)
 	})
     torrentUpload()
@@ -24,8 +23,7 @@ function upload(){
 }
 
 function getIpfs(){
-	video.src = 'https://gateway.ipfs.io/ipfs/' + ipfsHash.value + "/";
-	video.setAttribute("style", "display : inline");
+	video.src = 'https://gateway.ipfs.io/ipfs/'+ ipfsHash.value + "/"
 }
 
 var iph = "Qmdn6TA4UkV2VbfL4GTGowZC9jCZtMgNLAKLDBWy7XQUHZ"
