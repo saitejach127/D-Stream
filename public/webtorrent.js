@@ -8,16 +8,28 @@ function onTorrent(torrent){
 	torrent.files.forEach((file) => {
 		console.log(torrent.numPeers)
 		tor = torrent;
+		var time = video.currentTime;
 		file.renderTo('video#video');
+		source = video.src;
+		video.currentTime = time;
 	})
 }
 
-var change = true;
+var changeIpfs = true;
+let source;
+var changeTor = true;
 
 setInterval(()=>{
-	if(tor.numPeers == 0&&change){
+	if(tor.numPeers == 0&&changeIpfs){
 		turnIpfs();
-		change = false;
+		changeIpfs = false;
+	} else {
+		if(source&&changeTor){
+			var time = video.currentTime;
+			video.src = source;
+			video.currentTime = time;
+			changeTor = false;
+		}
 	}
 },1000)
 
